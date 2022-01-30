@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation1"
+    app:startDestination="@id/listar">
+
+    <fragment
+        android:id="@+id/criar"
+        android:name="com.example.segundaprova.Criar"
+        android:label="fragment_criar"
+        tools:layout="@layout/fragment_criar" >
+        <action
+            android:id="@+id/action_criar_to_listar"
+            app:destination="@id/listar" />
+        <argument
+            android:name="atividadeAtt"
+            app:argType="com.example.segundaprova.data.model.atividadeFisica" />
+    </fragment>
+    <fragment
+        android:id="@+id/listar"
+        android:name="com.example.segundaprova.Listar"
+        android:label="fragment_listar"
+        tools:layout="@layout/fragment_listar" >
+        <action
+            android:id="@+id/action_listar_to_criar"
+            app:destination="@id/criar" />
+        <action
+            android:id="@+id/action_listar_to_detalhes"
+            app:destination="@id/detalhes" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalhes"
+        android:name="com.example.segundaprova.detalhes"
+        android:label="fragment_detalhes"
+        tools:layout="@layout/fragment_detalhes" >
+        <action
+            android:id="@+id/action_detalhes_to_listar"
+            app:destination="@id/listar" />
+        <argument
+            android:name="telaDescricao"
+            app:argType="com.example.segundaprova.data.model.atividadeFisica" />
+        <action
+            android:id="@+id/action_detalhes_to_editar"
+            app:destination="@id/editar" />
+    </fragment>
+    <fragment
+        android:id="@+id/editar"
+        android:name="com.example.segundaprova.editar"
+        android:label="fragment_editar"
+        tools:layout="@layout/fragment_editar" >
+        <action
+            android:id="@+id/action_editar_to_listar"
+            app:destination="@id/listar" />
+        <argument
+            android:name="editar"
+            app:argType="com.example.segundaprova.data.model.atividadeFisica" />
+    </fragment>
+</navigation>
